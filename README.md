@@ -29,4 +29,13 @@ postGIS Cookbook (by Steve!)
 
 ==== 
 
+Some prior (related) art:
+
+- [PostGIS Guide](https://www.mapbox.com/tilemill/docs/guides/postgis-work/)
+
+- [OSM Bright Quickstart Install](https://www.mapbox.com/tilemill/docs/guides/osm-bright-mac-quickstart/). See other install notes.
+
+
+====
+
 A maptime production ;) 
