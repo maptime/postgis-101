@@ -82,11 +82,17 @@ DROP TABLE IF EXISTS xyz CASCADE;
 ---
 
 CREATE TABLE xyz
+
 (
+
 x DOUBLE PRECISION,
+
 y DOUBLE PRECISION,
+
 z DOUBLE PRECISION
+
 )
+
 WITH (OIDS=FALSE);
 
 ---
@@ -96,6 +102,7 @@ WITH (OIDS=FALSE);
 ---
 
 ALTER TABLE xyz ADD COLUMN gid serial;
+
 ALTER TABLE xyz ADD PRIMARY KEY (gid);
 
 ---
@@ -106,10 +113,13 @@ Insert some data
 
 INSERT INTO xyz (x, y, z)
 VALUES (random()*100, random()*7, random()*56);
+
 INSERT INTO xyz (x, y, z)
 VALUES (random()*12, random()*7, random()*25);
+
 INSERT INTO xyz (x, y, z)
 VALUES (random()*56, random()*7, random()*100);
+
 INSERT INTO xyz (x, y, z)
 VALUES (random()*25, random()*7, random()*12);
 
@@ -128,7 +138,9 @@ And now we'll create a spatial view that makes all our xyz values into points.
 ---
 
 CREATE VIEW xbecausez AS
+
 SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326)
+
 FROM xyz;
 
 ---
@@ -138,3 +150,25 @@ Voila!
 ---
 
 ![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/random_points.png)
+
+---
+
+Now if we get new points with just xyz values, but no spatial information, those will automatically become spatial!
+
+---
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*100, random()*7, random()*56);
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*12, random()*7, random()*25);
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*56, random()*7, random()*100);
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*25, random()*7, random()*12);
+
+---
+
+![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/moar_random_points.png)
