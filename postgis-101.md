@@ -239,6 +239,26 @@ SELECT 1 AS id, geom FROM extentz;
 ![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/convex_hull.png)
 
 ---
+
+Ok, let's go further and use some real data. 
+
+Suppose we have a proposed trail alignment:
+
+---
+
+![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/trail_alignment.png)
+
+---
+
+For this trail alignment we want to know the demographics within a mile of the trail:
+
+---
+
+![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/trail_alignment_census.png)
+
+---
+
+
 ```sql
 CREATE OR REPLACE FUNCTION proportional_sum(interpoly geometry, sumpoly geometry, sumnum double precision)
 RETURNS double precision AS
@@ -275,3 +295,4 @@ LANGUAGE sql VOLATILE;
 
 ```
 ---
+
