@@ -104,6 +104,7 @@ VALUES (random()*25, random()*7, random()*12)
 
 -- cleanup
 DROP VIEW IF EXISTS xbecausez;
+
 ---
 
 CREATE VIEW xbecausez AS
