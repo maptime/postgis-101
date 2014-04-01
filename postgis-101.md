@@ -257,4 +257,34 @@ Kind of like a 2D version of a shrink-wrapped boat:
 
 ---
 
+DROP TABLE IF EXISTS hull;
 
+CREATE TABLE hull AS
+
+WITH pointz AS
+
+	(
+
+	SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326) AS geom FROM xyz
+
+	)
+
+,collectionz AS
+
+	(
+
+	SELECT ST_Union(geom) AS unioned FROM pointz
+
+	)
+
+,extentz AS
+
+    (
+
+    SELECT ST_ConvexHull(unioned)::geometry AS geom FROM collectionz
+
+	)
+    
+SELECT 1 AS id, geom FROM extentz;
+
+---
