@@ -257,97 +257,62 @@ Kind of like a 2D version of a shrink-wrapped boat:
 
 ---
 
+```sql
 DROP TABLE IF EXISTS hull;
 
 CREATE TABLE hull AS
-
 WITH pointz AS
-
 	(
-
 	SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326) AS geom FROM xyz
-
 	)
-
 ,collectionz AS
-
 	(
-
 	SELECT ST_Union(geom) AS unioned FROM pointz
-
 	)
-
 ,extentz AS
-
     (
-
     SELECT ST_ConvexHull(unioned)::geometry AS geom FROM collectionz
-
 	)
-    
 SELECT 1 AS id, geom FROM extentz;
-
+```
 ---
 
 ![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/convex_hull.png)
 
 ---
-```SQL
+```sql
 CREATE OR REPLACE FUNCTION proportional_sum(interpoly geometry, sumpoly geometry, sumnum double precision)
-
 RETURNS double precision AS
-
 $BODY$
 
 WITH iintersection AS
-
 	(
-
 	SELECT ST_Intersection(interpoly, sumpoly) AS geom
-
 	),
 
 -- area of intersected geometry
-
 intarea AS
-
 	(
-
 	SELECT ST_Area(geom) AS intarea FROM iintersection
-
 	),
 
 -- area of input geometry for the proportion calculation
-
 sumarea AS
-
 	(
-
 	SELECT ST_Area(sumpoly) AS sumarea
-
 	),
 
--- now calculate the proportion of the intersection to the 
-
--- original geometry
-
+-- now calculate the proportion of the intersection to the original geometry
 proportion AS
-
 	(
-
 	SELECT intarea / sumarea AS proportion FROM
-
 		intarea CROSS JOIN sumarea
-
 	)
 
 -- finally use that proportion to scale the input number
-
 SELECT sumnum * proportion FROM proportion;
-
 $BODY$
-
 LANGUAGE sql VOLATILE;
 
----
 ```
+---
