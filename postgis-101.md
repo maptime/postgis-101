@@ -239,3 +239,19 @@ SELECT 1 AS id, geom FROM extentz;
 ---
 
 ![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/envelope.png)
+
+---
+
+Let's refine that shape a bit with something called a convex hull.  This will shrink-wrap our points in a polygon.
+
+---
+
+Kind of like a 2D version of a shrink-wrapped boat:
+
+---
+
+![](http://liquidpowersports.com/wp-content/uploads/2011/11/boat-shrink-wrap.jpg)
+
+---
+
+
