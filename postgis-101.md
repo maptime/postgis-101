@@ -98,7 +98,7 @@ VALUES (random()*12, random()*7, random()*25);
 INSERT INTO xyz (x, y, z)
 VALUES (random()*56, random()*7, random()*100);
 INSERT INTO xyz (x, y, z)
-VALUES (random()*25, random()*7, random()*12)
+VALUES (random()*25, random()*7, random()*12);
 
 ---
 
