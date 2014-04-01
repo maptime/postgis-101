@@ -112,16 +112,16 @@ Insert some data
 ---
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*100, random()*7, random()*56);
+VALUES (random()*100, random()*12, random()*56);
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*12, random()*7, random()*25);
+VALUES (random()*12, random()*56, random()*25);
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*56, random()*7, random()*100);
+VALUES (random()*56, random()*25, random()*100);
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*25, random()*7, random()*12);
+VALUES (random()*25, random()*100, random()*12);
 
 ---
 
@@ -158,16 +158,16 @@ Now if we get new points with just xyz values, but no spatial information, those
 ---
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*100, random()*7, random()*56);
+VALUES (random()*100, random()*12, random()*56);
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*12, random()*7, random()*25);
+VALUES (random()*12, random()*56, random()*25);
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*56, random()*7, random()*100);
+VALUES (random()*56, random()*25, random()*100);
 
 INSERT INTO xyz (x, y, z)
-VALUES (random()*25, random()*7, random()*12);
+VALUES (random()*25, random()*100, random()*12);
 
 ---
 
