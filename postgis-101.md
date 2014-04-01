@@ -341,8 +341,8 @@ Result?
 ---
 
 Things we learned (and can study more):
-Creating spatial data from xy values
-Creating TABLES and VIEWS of data
-Creating functions to extend PostGIS functionality
+* Creating spatial data from xy values
+* Creating TABLES and VIEWS of data
+* Creating functions to extend PostGIS functionality
 
 ---
