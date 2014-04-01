@@ -70,11 +70,17 @@ Let's do some basic work in it.  We'll make some random xy values and turn them 
 ---
 
 -- cleanup
+
+---
+
 DROP TABLE IF EXISTS xyz CASCADE;
 
 ---
 
--- table!
+-- create a table
+
+---
+
 CREATE TABLE xyz
 (
 x DOUBLE PRECISION,
@@ -85,9 +91,16 @@ WITH (OIDS=FALSE);
 
 ---
 
--- pk
+-- Add a primary key
+
+---
+
 ALTER TABLE xyz ADD COLUMN gid serial;
 ALTER TABLE xyz ADD PRIMARY KEY (gid);
+
+---
+
+Insert some data
 
 ---
 
@@ -102,11 +115,26 @@ VALUES (random()*25, random()*7, random()*12);
 
 ---
 
--- cleanup
+-- cleanup before creating view
+
+---
+
 DROP VIEW IF EXISTS xbecausez;
+
+---
+
+And now we'll create a spatial view that makes all our xyz values into points.
 
 ---
 
 CREATE VIEW xbecausez AS
 SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326)
 FROM xyz;
+
+---
+
+Voila!
+
+---
+
+![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/random_points.png)
