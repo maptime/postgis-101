@@ -38,8 +38,29 @@ Spatial on non-spatial data can be analysed at the same time
 
 ---
 
-* What is the most cost effective ice cream shop given prices and driving distance relative to each police station?
+* What is the most cost effective ice cream shop given ice cream prices, driving distance, and current gas prices relative to each police station?
 
 ---
 
 And the analyses are _web scale_
+
+---
+
+It handles vector and raster data
+
+---
+
+![](http://2012books.lardbucket.org/books/geographic-information-system-basics/section_11/ca6ce94cdd2e09a1da8aa6ec22336835.jpg)
+
+---
+
+And it's SQL (simple query language)
+
+---
+
+SELECT superhero.name
+FROM city, superhero
+WHERE ST_Contains(city.geom, superhero.geom)
+AND city.name = 'Gotham';
+
+---
