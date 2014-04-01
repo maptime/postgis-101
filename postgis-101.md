@@ -258,6 +258,16 @@ For this trail alignment we want to know the demographics within a mile of the t
 
 ---
 
+Now let's load our datasets into PostGIS.  We have a the trail alignment, trail_alignment_proposed.shp, for convenience, the buffered shape, trail_alignment_proposed_buffer.shp, and our census data that we want to summarize.
+
+```BASH
+shp2pgsql -s 3734 -d -i -I -W LATIN1 -g the_geom census trail_census | psql -U me -d postgis-101
+shp2pgsql -s 3734 -d -i -I -W LATIN1 -g the_geom trail_alignment_proposed_buffer trail_buffer | psql -U me -d postgis-101
+shp2pgsql -s 3734 -d -i -I -W LATIN1 -g the_geom trail_alignment_proposed trail_alignment_prop | psql -U me -d postgis-101
+```
+
+---
+
 
 ```sql
 CREATE OR REPLACE FUNCTION proportional_sum(interpoly geometry, sumpoly geometry, sumnum double precision)
