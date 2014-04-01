@@ -34,7 +34,7 @@ e.g.
 
 ---
 
-Spatial on non-spatial data can be analysed at the same time
+Spatial & non-spatial data can be analysed at the same time
 
 ---
 
