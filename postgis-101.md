@@ -46,21 +46,24 @@ And the analyses are _web scale_
 
 ---
 
-It handles vector and raster data
+It handles vector and raster data as abstractions (or images) of the real world.
 
 ---
 
-placeholder for layers
+![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/mural_layers.png)
 
 ---
 
-And it's SQL (simple query language)
+And it's PostGIS uses SQL, so if even if you don't know SQL, you should be able to find lots of folks who do.
 
 ---
 
 SELECT superhero.name
+
 FROM city, superhero
+
 WHERE ST_Contains(city.geom, superhero.geom)
+
 AND city.name = 'Gotham';
 
 ---
