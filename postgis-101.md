@@ -268,6 +268,10 @@ shp2pgsql -s 3734 -d -i -I -W LATIN1 -g the_geom trail_alignment_proposed trail_
 
 ---
 
+To get our demographics summarized, we need a function that calculates the proportion of each census block group that lays within our buffered trail. Fortunately, we can write that function as follows:
+
+---
+
 
 ```sql
 CREATE OR REPLACE FUNCTION proportional_sum(interpoly geometry, sumpoly geometry, sumnum double precision)
@@ -306,3 +310,31 @@ LANGUAGE sql VOLATILE;
 ```
 ---
 
+And now let's calculate our population:
+
+---
+
+```sql
+WITH proportion AS
+	(
+	SELECT trail.gid, proportional_sum(trail.the_geom, census.the_geom, census.pop) AS populations FROM
+		trail_buffer AS trail, trail_census as census
+	WHERE ST_Intersects(trail.the_geom, census.the_geom)
+	)
+SELECT ROUND(SUM(populations)) AS population FROM proportion
+	GROUP BY gid;
+
+```
+---
+
+Result?
+
+---
+
+```sql
+ population 
+------------
+      96081
+(1 row)
+
+```
