@@ -139,7 +139,7 @@ And now we'll create a spatial view that makes all our xyz values into points.
 
 CREATE VIEW xbecausez AS
 
-SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326)
+SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326) AS geom
 
 FROM xyz;
 
@@ -175,4 +175,65 @@ VALUES (random()*25, random()*100, random()*12);
 
 ---
 
-Cool, points on a map that auto-update.  Useful, but let's go deeper.
+Cool, points on a map that auto-update.  Useful, but let's go deeper.  Let's add a whole lot more points.
+
+---
+
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*100, random()*12, random()*56);
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*12, random()*56, random()*25);
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*56, random()*25, random()*100);
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*25, random()*100, random()*12);
+
+--...
+
+---
+
+What is the overall shape of my points? I could calculate the box they fit into.
+
+---
+
+We'll directly create a table this time (rather than a view).
+
+---
+
+DROP TABLE IF EXISTS envelope;
+
+---
+
+CREATE TABLE envelope AS
+
+WITH pointz AS
+
+	(
+
+	SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326) AS geom FROM xyz
+
+	)
+
+,collectionz AS
+
+	(
+
+	SELECT ST_Union(geom) AS unioned FROM pointz
+
+	)
+
+,extentz AS
+
+    (
+
+    SELECT ST_Extent(unioned)::geometry AS geom FROM collectionz
+
+	)
+    
+SELECT 1 AS id, geom FROM extentz;
+
+---
