@@ -292,7 +292,7 @@ SELECT 1 AS id, geom FROM extentz;
 ![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/convex_hull.png)
 
 ---
-
+```SQL
 CREATE OR REPLACE FUNCTION proportional_sum(interpoly geometry, sumpoly geometry, sumnum double precision)
 
 RETURNS double precision AS
@@ -350,3 +350,4 @@ $BODY$
 LANGUAGE sql VOLATILE;
 
 ---
+```
