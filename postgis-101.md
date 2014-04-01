@@ -64,3 +64,24 @@ WHERE ST_Contains(city.geom, superhero.geom)
 AND city.name = 'Gotham';
 
 ---
+
+Let's do some basic work in it.  We'll make some random xy values and turn them into points:
+
+---
+
+-- A little cleanup first
+DROP TABLE IF EXISTS xyz CASCADE;
+-- Let's create a table
+CREATE TABLE xyz
+(
+x DOUBLE PRECISION,
+y DOUBLE PRECISION,
+z DOUBLE PRECISION
+)
+WITH (OIDS=FALSE);
+
+---
+
+-- Better to have a primary
+ALTER TABLE xyz ADD COLUMN gid serial;
+ALTER TABLE xyz ADD PRIMARY KEY (gid);
