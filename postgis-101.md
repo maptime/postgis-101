@@ -237,3 +237,5 @@ WITH pointz AS
 SELECT 1 AS id, geom FROM extentz;
 
 ---
+
+![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/envelope.png)
