@@ -50,7 +50,7 @@ It handles vector and raster data
 
 ---
 
-![](http://2012books.lardbucket.org/books/geographic-information-system-basics/section_11/ca6ce94cdd2e09a1da8aa6ec22336835.jpg)
+placeholder for layers
 
 ---
 
@@ -71,6 +71,9 @@ Let's do some basic work in it.  We'll make some random xy values and turn them 
 
 -- A little cleanup first
 DROP TABLE IF EXISTS xyz CASCADE;
+
+---
+
 -- Let's create a table
 CREATE TABLE xyz
 (
@@ -82,6 +85,27 @@ WITH (OIDS=FALSE);
 
 ---
 
--- Better to have a primary
+-- Better to have a primary key
 ALTER TABLE xyz ADD COLUMN gid serial;
 ALTER TABLE xyz ADD PRIMARY KEY (gid);
+
+---
+
+INSERT INTO xyz (x, y, z)
+VALUES (random()*100, random()*7, random()*56);
+INSERT INTO xyz (x, y, z)
+VALUES (random()*12, random()*7, random()*25);
+INSERT INTO xyz (x, y, z)
+VALUES (random()*56, random()*7, random()*100);
+INSERT INTO xyz (x, y, z)
+VALUES (random()*25, random()*7, random()*12)
+
+---
+
+-- cleanup before our we create our view
+DROP VIEW IF EXISTS xbecausez;
+---
+
+CREATE VIEW xbecausez AS
+SELECT x, y, z, ST_SetSRID(ST_MakePoint(x,y), 4326)
+FROM xyz;
