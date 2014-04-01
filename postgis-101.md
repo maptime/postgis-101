@@ -69,12 +69,12 @@ Let's do some basic work in it.  We'll make some random xy values and turn them 
 
 ---
 
--- A little cleanup first
+-- cleanup
 DROP TABLE IF EXISTS xyz CASCADE;
 
 ---
 
--- Let's create a table
+-- table!
 CREATE TABLE xyz
 (
 x DOUBLE PRECISION,
@@ -85,7 +85,7 @@ WITH (OIDS=FALSE);
 
 ---
 
--- Better to have a primary key
+-- pk
 ALTER TABLE xyz ADD COLUMN gid serial;
 ALTER TABLE xyz ADD PRIMARY KEY (gid);
 
@@ -102,7 +102,7 @@ VALUES (random()*25, random()*7, random()*12)
 
 ---
 
--- cleanup before our we create our view
+-- cleanup
 DROP VIEW IF EXISTS xbecausez;
 ---
 
