@@ -172,3 +172,7 @@ VALUES (random()*25, random()*7, random()*12);
 ---
 
 ![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/moar_random_points.png)
+
+---
+
+Cool, points on a map that auto-update.  Useful, but let's go deeper.
