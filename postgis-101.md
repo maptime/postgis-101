@@ -50,7 +50,7 @@ It handles vector and raster data as abstractions (or images) of the real world.
 
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/mural_layers.png)
+![](img/mural_layers.png)
 
 ---
 
@@ -124,7 +124,7 @@ Voila!
 
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/random_points.png)
+![](img/random_points.png)
 
 ---
 
@@ -147,7 +147,7 @@ VALUES (random()*25, random()*100, random()*12);
 ```
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/moar_random_points.png)
+![](img/moar_random_points.png)
 
 ---
 
@@ -200,7 +200,7 @@ SELECT 1 AS id, geom FROM extentz;
 
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/envelope.png)
+![](img/envelope.png)
 
 ---
 
@@ -212,7 +212,7 @@ Kind of like a 2D version of a shrink-wrapped boat:
 
 ---
 
-![](http://liquidpowersports.com/wp-content/uploads/2011/11/boat-shrink-wrap.jpg)
+![](img/boat-shrink-wrap.jpg)
 
 ---
 
@@ -236,7 +236,7 @@ SELECT 1 AS id, geom FROM extentz;
 ```
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/convex_hull.png)
+![](img/convex_hull.png)
 
 ---
 
@@ -246,7 +246,7 @@ Suppose we have a proposed trail alignment:
 
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/trail_alignment.png)
+![](img/trail_alignment.png)
 
 ---
 
@@ -254,7 +254,7 @@ For this trail alignment we want to know the demographics within a mile of the t
 
 ---
 
-![](https://raw.githubusercontent.com/maptime/postgis-101/opengeocle/img/trail_alignment_census.png)
+![](img/trail_alignment_census.png)
 
 ---
 
