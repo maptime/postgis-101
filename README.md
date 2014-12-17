@@ -10,9 +10,9 @@ The slides for the maptime postgis-101 workshop/tutorial can be found in postgis
 
 Some great Guides for learning PostgreSQL and postGIS:
 
-- [Introduction to postGIS](http://workshops.boundlessgeo.com/postgis-intro/index.html)
+- [Introduction to postGIS by Boundless](http://workshops.boundlessgeo.com/postgis-intro/index.html)
 - [PostGIS Guide for Tilemill](https://www.mapbox.com/tilemill/docs/guides/postgis-work/)
-- [Introduction to postGIS through CartoDB](https://github.com/csvsoundsystem/nicar-cartodb-postgis) postGIS section explains some basic syntax and how to do some basic tasks
+- [Introduction to postGIS through CartoDB by CSV Soundsystem](https://github.com/csvsoundsystem/nicar-cartodb-postgis) postGIS section explains some basic syntax and how to do some basic tasks
 
 ==== 
 
