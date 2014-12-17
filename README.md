@@ -1,40 +1,28 @@
 postgis-101
 ===========
-This is just a place holder for some ideas that I have for an introduction for postGIS. 
-
 Assumes audience is familiar with very basic geospatial principles (rasters and vectors) but has 
 no experience with SQL. 
 
-Slides for learning basic SQL and postGIS 
+The slides for the maptime postgis-101 workshop/tutorial can be found in postgis-101.md 
 
-=========== 
 
-- What is SQL (Databases, ugh, na na na) 
+=============
 
-- SELECT myawesomecolumn name FROM mytable; 
+Some great Guides for learning PostgreSQL and postGIS:
 
-- 
-
-====
-
-Uses Rasters (images) and Vectors, oh my! 
+- [Introduction to postGIS by Boundless](http://workshops.boundlessgeo.com/postgis-intro/index.html)
+- [PostGIS Guide for Tilemill](https://www.mapbox.com/tilemill/docs/guides/postgis-work/)
+- [Introduction to postGIS through CartoDB by CSV Soundsystem](https://github.com/csvsoundsystem/nicar-cartodb-postgis) postGIS section explains some basic syntax and how to do some basic tasks
 
 ==== 
 
-Checkout these awesome resources: 
+For more advanced materials on postGIS and postgreSQL, checkout these awesome resources: 
 
-postGIS in Action 
+postGIS in Action (book)
 
 postGIS Cookbook (by Steve!) 
 
 ==== 
-
-Some prior (related) art:
-
-- [PostGIS Guide](https://www.mapbox.com/tilemill/docs/guides/postgis-work/)
-
-- [OSM Bright Quickstart Install](https://www.mapbox.com/tilemill/docs/guides/osm-bright-mac-quickstart/). See other install notes.
-
 
 ====
 
